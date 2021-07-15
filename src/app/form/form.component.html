@@ -1,0 +1,203 @@
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-keyboard="false" data-bs-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title " id="exampleModalLabel">Edit User</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="onClick()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body " >
+        <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
+          <h3 *ngIf="!editUser">Add User</h3>
+          <div class="row">
+            <div class="form-group col-6">
+              <input type="text" placeholder="First Name" class="form-control" formControlName="firstname">
+              <div *ngIf="formGet.firstname.errors && formGet.firstname.touched">
+                <p class="text-red" *ngIf="formGet.firstname.errors.required">First Name required</p>
+              </div>
+            </div>
+            <div class="form-group col-6">
+              <input type="text" placeholder="Last Name" class="form-control" formControlName="lastname">
+              <div *ngIf="formGet.lastname.errors && formGet.lastname.touched">
+                <p class="text-red" *ngIf="formGet.lastname.errors.required">Last Name required</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-6">
+              <input type="email" placeholder="Email" class="form-control" formControlName="email">
+              <div *ngIf="formGet.email.errors && formGet.email.touched">
+                <p class="text-red" *ngIf="formGet.email.errors.required">Email required</p>
+              </div>
+            </div>
+            <div class="form-group col-6">
+              <input type="number" placeholder="Phone Number" class="form-control" formControlName="phone">
+              <div *ngIf="formGet.phone.errors && formGet.phone.touched">
+                <p class="text-red" *ngIf="formGet.phone.errors.required">Phone Number required</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-6">
+              <input type="text" placeholder="Enter Your Password" class="form-control" formControlName="password">
+              <div *ngIf="formGet.password.errors && formGet.password.touched">
+                <p class="text-red" *ngIf="formGet.password.errors.required">Password required</p>
+              </div>
+            </div>
+            <div class="form-group col-6">
+              <input type="text" placeholder="City" class="form-control" formControlName="city">
+              <div *ngIf="formGet.city.errors && formGet.city.touched">
+                <p class="text-red" *ngIf="formGet.city.errors.required">City required</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-6">
+              <input type="text" placeholder="State" class="form-control" formControlName="state">
+              <div *ngIf="formGet.state.errors && formGet.state.touched">
+                <p class="text-red" *ngIf="formGet.state.errors.required">State required</p>
+              </div>
+            </div>
+            <div class="form-group col-6">
+              <input type="text" placeholder="Country" class="form-control" formControlName="country">
+              <div *ngIf="formGet.country.errors && formGet.country.touched">
+                <p class="text-red" *ngIf="formGet.country.errors.required">Country required</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group text-right">
+              <!-- <p class="text-red right" *ngIf="!userForm.valid && userForm.touched">Please enter valid details</p> -->
+              <button
+              type="submit"
+               [disabled]="!userForm.valid "
+                class="btn btn-primary right"
+                data-bs-dismiss="modal"> {{editUser ? 'Update' : 'Add'}} User</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container" *ngIf="!editUser" >
+  <div class="row">
+    <div class="col-12">
+      <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
+        <h3>Add User</h3>
+        <div class="row">
+          <div class="form-group col-6">
+            <input type="text" placeholder="First Name" class="form-control" formControlName="firstname">
+            <div *ngIf="formGet.firstname.errors && formGet.firstname.touched">
+              <p class="text-red" *ngIf="formGet.firstname.errors.required">First Name required</p>
+            </div>
+          </div>
+          <div class="form-group col-6">
+            <input type="text" placeholder="Last Name" class="form-control" formControlName="lastname">
+            <div *ngIf="formGet.lastname.errors && formGet.lastname.touched">
+              <p class="text-red" *ngIf="formGet.lastname.errors.required">Last Name required</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-6">
+            <input type="email" placeholder="Email" class="form-control" formControlName="email">
+            <div *ngIf="formGet.email.errors && formGet.email.touched">
+              <p class="text-red" *ngIf="formGet.email.errors.required">Email required</p>
+            </div>
+          </div>
+          <div class="form-group col-6">
+            <input type="number" placeholder="Phone Number" class="form-control" formControlName="phone">
+            <div *ngIf="formGet.phone.errors && formGet.phone.touched">
+              <p class="text-red" *ngIf="formGet.phone.errors.required">Phone Number required</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-6">
+            <input type="text" placeholder="Enter Your Password" class="form-control" formControlName="password">
+            <div *ngIf="formGet.password.errors && formGet.password.touched">
+              <p class="text-red" *ngIf="formGet.password.errors.required">Password required</p>
+            </div>
+          </div>
+          <div class="form-group col-6">
+            <input type="text" placeholder="City" class="form-control" formControlName="city">
+            <div *ngIf="formGet.city.errors && formGet.city.touched">
+              <p class="text-red" *ngIf="formGet.city.errors.required">City required</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-6">
+            <input type="text" placeholder="State" class="form-control" formControlName="state">
+            <div *ngIf="formGet.state.errors && formGet.state.touched">
+              <p class="text-red" *ngIf="formGet.state.errors.required">State required</p>
+            </div>
+          </div>
+          <div class="form-group col-6">
+            <input type="text" placeholder="Country" class="form-control" formControlName="country">
+            <div *ngIf="formGet.country.errors && formGet.country.touched">
+              <p class="text-red" *ngIf="formGet.country.errors.required">Country required</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group text-right">
+            <!-- <p class="text-red right" *ngIf="!userForm.valid && userForm.touched">Please enter valid details</p> -->
+            <button type="submit" [disabled]="!userForm.valid " class="btn btn-primary right">Add User</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container" >
+  <div class="row">
+    <div class="col-12 text-center ">
+      <h3>Users List</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 ">
+      <div class="border-con table-responsive">
+        <table class="table ">
+          <thead>
+            <tr>
+              <th scope="col" *ngFor="let head of tableHead">{{head}}</th>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody>
+            <div class="loader">
+              <div class="spinner-border" role="status" *ngIf="spinner">
+              </div>
+            </div>
+            <tr *ngFor="let user of userList">
+              <td scope="row" >{{user.id}}</td>
+              <td  >{{user.first_name}}</td>
+              <td  >{{user.last_name}}</td>
+              <td  >{{user.email}}</td>
+              <td  >{{user.phone_number}}</td>
+              <td  >{{user.password}}</td>
+              <td  >{{user.city}}</td>
+              <td  >{{user.state}}</td>
+              <td  >{{user.country}}</td>
+              <td>
+                <button
+                class="btn btn-secondary"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                (click)="onEdit(user)" >Edit</button>
+              </td>
+              <td>
+                <button
+                class="btn btn-danger"
+                (click)="onDelete(user.id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
